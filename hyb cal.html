@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Hybrid Calculator with Office Integration</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    min-height: 100vh;
+    color: #fff;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Sections */
+.calculator-section,
+.office-section,
+.creative-section {
+    background: #111;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* Buttons */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background: #222;
+    color: white;
+}
+
+button:hover {
+    background: #444;
+}
+
+.mode-btn.active {
+    background: #555;
+}
+
+/* Display */
+.display {
+    background: #000;
+    color: #0f0;
+    font-size: 2em;
+    text-align: right;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Grid buttons */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #444;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #222;
+}
+
+/* Inputs */
+input {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #000;
+    color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Creative Hybrid Calculator Suite</h1>
+        <p>Advanced Calculator with Office Integration and Creative Tools</p>
+    </div>
+
+    <div class="main-grid">
+
+        <div class="calculator-section">
+            <div class="mode-selector">
+                <button class="mode-btn active">Standard</button>
+                <button class="mode-btn">Scientific</button>
+                <button class="mode-btn">Programmer</button>
+                <button class="mode-btn">Financial</button>
+            </div>
+
+            <div class="display">0</div>
+
+            <div class="buttons">
+                <button>7</button><button>8</button><button>9</button><button>/</button><button>C</button>
+                <button>4</button><button>5</button><button>6</button><button>*</button><button>(</button>
+                <button>1</button><button>2</button><button>3</button><button>-</button><button>)</button>
+                <button>0</button><button>.</button><button>=</button><button>+</button><button>√</button>
+            </div>
+        </div>
+
+        <div class="office-section">
+            <h2>Microsoft Office Integration</h2>
+            <button>Export to Excel</button>
+            <button>Export to Word</button>
+            <button>Generate PowerPoint</button>
+            <button>Import from Excel</button>
+        </div>
+
+    </div>
+
+    <div class="creative-section">
+        <h2>Creative Mathematical Tools</h2>
+
+        <div>
+            <h3>Fibonacci Generator</h3>
+            <input type="number" placeholder="Enter n">
+            <button>Generate</button>
+        </div>
+
+        <div>
+            <h3>Prime Checker</h3>
+            <input type="number" placeholder="Enter number">
+            <button>Check</button>
+        </div>
+
+        <div>
+            <h3>Statistics</h3>
+            <input type="text" placeholder="1,2,3">
+            <button>Analyze</button>
+        </div>
+
+        <div>
+            <h3>Golden Ratio</h3>
+            <input type="number">
+            <button>Calculate</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
