@@ -1,116 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creative Hybrid Calculator with Office Integration</title>
+
+<title>Creative Hybrid Calculator</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    background: #000;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 20px;
-    min-height: 100vh;
-    color: #fff;
+body{
+    background:#000;
+    color:white;
+    font-family:Arial;
+    padding:20px;
 }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
+.container{
+    max-width:1300px;
+    margin:auto;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 30px;
+.header{
+    text-align:center;
+    margin-bottom:20px;
 }
 
-.header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+.main-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
 }
 
-.main-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+/* BOXES */
+
+.section{
+    background:#111;
+    padding:20px;
+    border-radius:20px;
 }
 
-/* Sections */
-.calculator-section,
-.office-section,
-.creative-section {
-    background: #111;
-    border-radius: 20px;
-    padding: 20px;
+/* TOP MODE BUTTONS */
+
+.mode-selector{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
 }
 
-/* Buttons */
-button {
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    background: #222;
-    color: white;
+.mode-btn{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#222;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-button:hover {
-    background: #444;
+.mode-btn.active{
+    background:#0f0;
+    color:black;
 }
 
-.mode-btn.active {
-    background: #555;
+/* DISPLAY */
+
+.display{
+    background:#000;
+    color:#0f0;
+    font-size:2rem;
+    padding:20px;
+    border-radius:10px;
+    text-align:right;
+    margin-bottom:20px;
+    min-height:80px;
+    overflow-x:auto;
 }
 
-/* Display */
-.display {
-    background: #000;
-    color: #0f0;
-    font-size: 2em;
-    text-align: right;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+/* CALCULATOR BUTTONS */
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
 }
 
-/* Grid buttons */
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+.calc-btn{
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#222;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
 }
 
-/* Table */
-table {
-    width: 100%;
-    border-collapse: collapse;
+.calc-btn:hover{
+    background:#444;
 }
 
-th, td {
-    border: 1px solid #444;
-    padding: 8px;
-    text-align: center;
+/* INPUTS */
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    margin-bottom:10px;
+    background:#000;
+    border:1px solid #555;
+    color:white;
+    border-radius:8px;
 }
 
-th {
-    background: #222;
+/* TOOL BUTTONS */
+
+.tool-btn{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:#333;
+    color:white;
+    cursor:pointer;
 }
 
-/* Inputs */
-input {
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    background: #000;
-    color: white;
+.tool-btn:hover{
+    background:#555;
+}
+
+.result{
+    color:#0f0;
+    margin-top:10px;
+}
+
+hr{
+    margin-top:20px;
+    margin-bottom:20px;
+    border:1px solid #333;
+}
+
+@media(max-width:768px){
+
+    .main-grid{
+        grid-template-columns:1fr;
+    }
+
+    .buttons{
+        grid-template-columns:repeat(4,1fr);
+    }
 }
 
 </style>
@@ -120,70 +166,666 @@ input {
 
 <div class="container">
 
-    <div class="header">
-        <h1>Creative Hybrid Calculator Suite</h1>
-        <p>Advanced Calculator with Office Integration and Creative Tools</p>
-    </div>
+<!-- HEADER -->
 
-    <div class="main-grid">
+<div class="header">
 
-        <div class="calculator-section">
-            <div class="mode-selector">
-                <button class="mode-btn active">Standard</button>
-                <button class="mode-btn">Scientific</button>
-                <button class="mode-btn">Programmer</button>
-                <button class="mode-btn">Financial</button>
-            </div>
+<h1>Creative Hybrid Calculator Suite</h1>
 
-            <div class="display">0</div>
-
-            <div class="buttons">
-                <button>7</button><button>8</button><button>9</button><button>/</button><button>C</button>
-                <button>4</button><button>5</button><button>6</button><button>*</button><button>(</button>
-                <button>1</button><button>2</button><button>3</button><button>-</button><button>)</button>
-                <button>0</button><button>.</button><button>=</button><button>+</button><button>√</button>
-            </div>
-        </div>
-
-        <div class="office-section">
-            <h2>Microsoft Office Integration</h2>
-            <button>Export to Excel</button>
-            <button>Export to Word</button>
-            <button>Generate PowerPoint</button>
-            <button>Import from Excel</button>
-        </div>
-
-    </div>
-
-    <div class="creative-section">
-        <h2>Creative Mathematical Tools</h2>
-
-        <div>
-            <h3>Fibonacci Generator</h3>
-            <input type="number" placeholder="Enter n">
-            <button>Generate</button>
-        </div>
-
-        <div>
-            <h3>Prime Checker</h3>
-            <input type="number" placeholder="Enter number">
-            <button>Check</button>
-        </div>
-
-        <div>
-            <h3>Statistics</h3>
-            <input type="text" placeholder="1,2,3">
-            <button>Analyze</button>
-        </div>
-
-        <div>
-            <h3>Golden Ratio</h3>
-            <input type="number">
-            <button>Calculate</button>
-        </div>
-    </div>
+<p>Advanced Calculator with Office Integration and Creative Tools</p>
 
 </div>
+
+<div class="main-grid">
+
+<!-- CALCULATOR -->
+
+<div class="section">
+
+<!-- MODES -->
+
+<div class="mode-selector">
+
+<button class="mode-btn active" onclick="setMode('standard',this)">
+Standard
+</button>
+
+<button class="mode-btn" onclick="setMode('scientific',this)">
+Scientific
+</button>
+
+<button class="mode-btn" onclick="setMode('programmer',this)">
+Programmer
+</button>
+
+<button class="mode-btn" onclick="setMode('financial',this)">
+Financial
+</button>
+
+</div>
+
+<!-- DISPLAY -->
+
+<div class="display" id="display">0</div>
+
+<!-- BUTTONS -->
+
+<div class="buttons" id="buttons"></div>
+
+</div>
+
+<!-- MICROSOFT OFFICE SECTION -->
+
+<div class="section">
+
+<h2>Microsoft Office Integration</h2>
+
+<button class="tool-btn" onclick="exportExcel()">
+Export to Excel
+</button>
+
+<button class="tool-btn" onclick="exportWord()">
+Export to Word
+</button>
+
+<button class="tool-btn" onclick="generatePowerPoint()">
+Generate PowerPoint
+</button>
+
+<button class="tool-btn" onclick="importExcel()">
+Import from Excel
+</button>
+
+<!-- HIDDEN FILE INPUT -->
+
+<input 
+type="file" 
+id="excelFile" 
+accept=".csv,.txt"
+style="display:none"
+>
+
+</div>
+
+<script>
+
+/* EXPORT TO EXCEL */
+
+function exportExcel(){
+
+    let data=
+    "Hybrid Calculator Result\n\n"+
+    "Result,"+display.innerText;
+
+    let blob=new Blob(
+    [data],
+    {
+        type:"text/csv"
+    });
+
+    let link=document.createElement("a");
+
+    link.href=URL.createObjectURL(blob);
+
+    link.download="calculator_result.csv";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+}
+
+/* EXPORT TO WORD */
+
+function exportWord(){
+
+    let content=
+    `
+    HYBRID CALCULATOR REPORT
+
+    Calculator Result :
+    ${display.innerText}
+
+    Generated Successfully
+    `;
+
+    let blob=new Blob(
+    [content],
+    {
+        type:"application/msword"
+    });
+
+    let link=document.createElement("a");
+
+    link.href=URL.createObjectURL(blob);
+
+    link.download="calculator_report.doc";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+}
+
+/* GENERATE POWERPOINT */
+
+function generatePowerPoint(){
+
+    let content=
+    `
+    POWERPOINT CONTENT
+
+    Calculator Output:
+    ${display.innerText}
+
+    Presentation Generated Successfully
+    `;
+
+    let blob=new Blob(
+    [content],
+    {
+        type:"text/plain"
+    });
+
+    let link=document.createElement("a");
+
+    link.href=URL.createObjectURL(blob);
+
+    link.download="presentation.txt";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+}
+
+/* IMPORT EXCEL */
+
+function importExcel(){
+
+    document.getElementById("excelFile").click();
+}
+
+/* READ IMPORTED FILE */
+
+document.getElementById("excelFile")
+.addEventListener("change",function(event){
+
+    let file=event.target.files[0];
+
+    if(file){
+
+        let reader=new FileReader();
+
+        reader.onload=function(e){
+
+            let content=e.target.result;
+
+            alert(
+            "Imported File Successfully\n\n"+
+            content
+            );
+        };
+
+        reader.readAsText(file);
+    }
+});
+
+</script>
+<!-- BOTTOM TOOLS -->
+
+<div class="section" style="margin-top:20px;">
+
+<h2>Creative Mathematical Tools</h2>
+
+<!-- Fibonacci -->
+
+<h3>Fibonacci Generator</h3>
+
+<input type="number" id="fibInput" placeholder="Enter Number">
+
+<button class="tool-btn" onclick="generateFibonacci()">
+Generate Fibonacci
+</button>
+
+<div class="result" id="fibResult"></div>
+
+<hr>
+
+<!-- PRIME -->
+
+<h3>Prime Checker</h3>
+
+<input type="number" id="primeInput" placeholder="Enter Number">
+
+<button class="tool-btn" onclick="checkPrime()">
+Check Prime
+</button>
+
+<div class="result" id="primeResult"></div>
+
+<hr>
+
+<!-- STATISTICS -->
+
+<h3>Statistics Analyzer</h3>
+
+<input type="text" id="statsInput" placeholder="1,2,3,4">
+
+<button class="tool-btn" onclick="analyzeStats()">
+Analyze Statistics
+</button>
+
+<div class="result" id="statsResult"></div>
+
+<hr>
+
+<!-- GOLDEN RATIO -->
+
+<h3>Golden Ratio</h3>
+
+<input type="number" id="goldInput" placeholder="Enter Number">
+
+<button class="tool-btn" onclick="calculateGolden()">
+Calculate Golden Ratio
+</button>
+
+<div class="result" id="goldResult"></div>
+
+</div>
+
+</div>
+
+<script>
+
+/* DISPLAY */
+
+let display=document.getElementById("display");
+
+let buttonsContainer=document.getElementById("buttons");
+
+let currentInput="";
+
+/* MODES */
+
+const modes={
+
+standard:[
+'7','8','9','/','C',
+'4','5','6','*','(',
+'1','2','3','-',')',
+'0','.','=','+','√'
+],
+
+scientific:[
+'sin','cos','tan','log','C',
+'7','8','9','/','^',
+'4','5','6','*','(',
+'1','2','3','-',')',
+'0','.','=','+','√'
+],
+
+programmer:[
+'AND','OR','XOR','NOT','C',
+'7','8','9','/','%',
+'4','5','6','*','<<',
+'1','2','3','-','>>',
+'0','.','=','+','BIN'
+],
+
+financial:[
+'SI','CI','GST','TAX','C',
+'7','8','9','/','%',
+'4','5','6','*','(',
+'1','2','3','-',')',
+'0','.','=','+','$'
+]
+
+};
+
+/* LOAD BUTTONS */
+
+function loadButtons(mode){
+
+    buttonsContainer.innerHTML="";
+
+    modes[mode].forEach(value=>{
+
+        let btn=document.createElement("button");
+
+        btn.className="calc-btn";
+
+        btn.innerText=value;
+
+        btn.onclick=function(){
+
+            handleButton(value);
+        };
+
+        buttonsContainer.appendChild(btn);
+    });
+}
+
+/* MODE CHANGE */
+
+function setMode(mode,element){
+
+    let all=document.querySelectorAll(".mode-btn");
+
+    all.forEach(btn=>{
+
+        btn.classList.remove("active");
+    });
+
+    element.classList.add("active");
+
+    clearDisplay();
+
+    loadButtons(mode);
+}
+
+/* HANDLE BUTTONS */
+
+function handleButton(value){
+
+    if(value==="C"){
+
+        clearDisplay();
+    }
+
+    else if(value==="="){
+
+        calculate();
+    }
+
+    else if(value==="√"){
+
+        currentInput=Math.sqrt(eval(currentInput)).toString();
+
+        display.innerText=currentInput;
+    }
+
+    /* SCIENTIFIC */
+
+    else if(value==="sin"){
+
+        currentInput=Math.sin(eval(currentInput)).toString();
+
+        display.innerText=currentInput;
+    }
+
+    else if(value==="cos"){
+
+        currentInput=Math.cos(eval(currentInput)).toString();
+
+        display.innerText=currentInput;
+    }
+
+    else if(value==="tan"){
+
+        currentInput=Math.tan(eval(currentInput)).toString();
+
+        display.innerText=currentInput;
+    }
+
+    else if(value==="log"){
+
+        currentInput=Math.log10(eval(currentInput)).toString();
+
+        display.innerText=currentInput;
+    }
+
+    else if(value==="^"){
+
+        currentInput+="**";
+
+        display.innerText=currentInput;
+    }
+
+    /* PROGRAMMER */
+
+    else if(value==="BIN"){
+
+        currentInput=parseInt(currentInput).toString(2);
+
+        display.innerText=currentInput;
+    }
+
+    else if(value==="AND"){
+
+        currentInput+=" & ";
+
+        display.innerText=currentInput;
+    }
+
+    else if(value==="OR"){
+
+        currentInput+=" | ";
+
+        display.innerText=currentInput;
+    }
+
+    else if(value==="XOR"){
+
+        currentInput+=" ^ ";
+
+        display.innerText=currentInput;
+    }
+
+    else if(value==="NOT"){
+
+        currentInput=(~parseInt(currentInput)).toString();
+
+        display.innerText=currentInput;
+    }
+
+    else if(value==="<<"){
+
+        currentInput+=" << ";
+
+        display.innerText=currentInput;
+    }
+
+    else if(value===">>"){
+
+        currentInput+=" >> ";
+
+        display.innerText=currentInput;
+    }
+
+    /* FINANCIAL */
+
+    else if(value==="SI"){
+
+        let p=prompt("Principal");
+
+        let r=prompt("Rate");
+
+        let t=prompt("Time");
+
+        let si=(p*r*t)/100;
+
+        currentInput=si;
+
+        display.innerText="SI = "+si;
+    }
+
+    else if(value==="CI"){
+
+        let p=prompt("Principal");
+
+        let r=prompt("Rate");
+
+        let t=prompt("Time");
+
+        let ci=p*Math.pow((1+r/100),t)-p;
+
+        currentInput=ci;
+
+        display.innerText="CI = "+ci.toFixed(2);
+    }
+
+    else if(value==="GST"){
+
+        let amount=prompt("Amount");
+
+        let gst=amount*0.18;
+
+        currentInput=gst;
+
+        display.innerText="GST = "+gst;
+    }
+
+    else if(value==="TAX"){
+
+        let income=prompt("Income");
+
+        let tax=income*0.10;
+
+        currentInput=tax;
+
+        display.innerText="Tax = "+tax;
+    }
+
+    else{
+
+        if(currentInput===""){
+
+            currentInput=value;
+        }
+
+        else{
+
+            currentInput+=value;
+        }
+
+        display.innerText=currentInput;
+    }
+}
+
+/* CALCULATE */
+
+function calculate(){
+
+    try{
+
+        currentInput=eval(currentInput).toString();
+
+        display.innerText=currentInput;
+    }
+
+    catch{
+
+        display.innerText="Error";
+    }
+}
+
+/* CLEAR */
+
+function clearDisplay(){
+
+    currentInput="";
+
+    display.innerText="0";
+}
+
+/* DEFAULT */
+
+loadButtons("standard");
+
+/* FIBONACCI */
+
+function generateFibonacci(){
+
+    let n=parseInt(document.getElementById("fibInput").value);
+
+    let a=0,b=1;
+
+    let result=[0];
+
+    for(let i=1;i<n;i++){
+
+        result.push(b);
+
+        let temp=a+b;
+
+        a=b;
+
+        b=temp;
+    }
+
+    document.getElementById("fibResult").innerText=
+    result.join(", ");
+}
+
+/* PRIME */
+
+function checkPrime(){
+
+    let num=parseInt(document.getElementById("primeInput").value);
+
+    let prime=true;
+
+    if(num<=1){
+
+        prime=false;
+    }
+
+    for(let i=2;i<num;i++){
+
+        if(num%i===0){
+
+            prime=false;
+
+            break;
+        }
+    }
+
+    document.getElementById("primeResult").innerText=
+    prime ? "Prime Number" : "Not Prime Number";
+}
+
+/* STATISTICS */
+
+function analyzeStats(){
+
+    let data=document.getElementById("statsInput").value
+    .split(',')
+    .map(Number);
+
+    let sum=data.reduce((a,b)=>a+b,0);
+
+    let avg=sum/data.length;
+
+    let max=Math.max(...data);
+
+    let min=Math.min(...data);
+
+    document.getElementById("statsResult").innerHTML=
+    `
+    Sum : ${sum}<br>
+    Average : ${avg}<br>
+    Maximum : ${max}<br>
+    Minimum : ${min}
+    `;
+}
+
+/* GOLDEN */
+
+function calculateGolden(){
+
+    let num=parseFloat(document.getElementById("goldInput").value);
+
+    let result=num*1.618;
+
+    document.getElementById("goldResult").innerText=
+    "Golden Ratio = "+result.toFixed(2);
+}
+
+</script>
 
 </body>
 </html>
